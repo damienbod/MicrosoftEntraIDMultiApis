@@ -6,6 +6,10 @@ using Microsoft.OpenApi.Models;
 using AadMultiTenantApi;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,9 +23,23 @@ var configuration = builder.Configuration;
 var env = builder.Environment;
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-// IdentityModelEventSource.ShowPII = true;
+IdentityModelEventSource.ShowPII = true;
 
-services.AddMicrosoftIdentityWebApiAuthentication(configuration);
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+        {
+            options.MetadataAddress = "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration";
+            options.Authority = "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0";
+            options.Audience = "fd88c6e8-e790-4b1e-afab-3a9df8726a80";
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidAudiences = new List<string> { "fd88c6e8-e790-4b1e-afab-3a9df8726a80" },
+                ValidIssuers = new List<string> { "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0" }
+            };
+        });
 
 services.AddControllers(options =>
 {
