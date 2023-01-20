@@ -13,7 +13,7 @@ New-AzureADServicePrincipal -AppId 'AppId-from-multi-tenant-api'
 ## Give Consent in your tenant to the Enterprise applications
 
 1. Open the Enterprise Applications blade
-2. Find your enterprise application using the guid AppID
+2. Find your enterprise application using the guid ObjectId from the powershell script
 3. Open the permissions blade
 4. Grant Admin consent
 
