@@ -19,6 +19,9 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 var env = builder.Environment;
 
+// API info => multi tenant App registration V2
+// "TenantId": "7ff95b15-dc21-4ba6-bc92-824856578fc1",
+// "ClientId": "fd88c6e8-e790-4b1e-afab-3a9df8726a80"
 // jwt validate, should be in the configuration
 var issuert1 = "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0";
 var aud = "fd88c6e8-e790-4b1e-afab-3a9df8726a80";
