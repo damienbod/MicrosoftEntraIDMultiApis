@@ -124,8 +124,6 @@ if (env.IsDevelopment())
     });
 }
 
-app.UseCors("AllowMyOrigins");
-
 app.UseHttpsRedirection();
 
 app.UseRouting();
