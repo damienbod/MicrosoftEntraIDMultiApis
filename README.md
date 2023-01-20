@@ -25,7 +25,7 @@ Permissions used in the AAD API
 
 ## Azure AD Permissions UI 
 
-- User.Read
+- multi-tenant-api
 
 ## Links
 
