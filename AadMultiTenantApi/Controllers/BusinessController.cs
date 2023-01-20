@@ -11,6 +11,6 @@ public class BusinessController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok(new List<string> { "data1", "data2" });
+        return Ok(new List<string> { "data1 from t1", "data2" });
     }
 }

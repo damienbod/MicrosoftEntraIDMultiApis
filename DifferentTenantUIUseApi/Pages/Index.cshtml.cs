@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyServerRenderedPortal.Pages;
+namespace DifferentTenantUIUseApi.Pages;
 
 public class IndexModel : PageModel
 {

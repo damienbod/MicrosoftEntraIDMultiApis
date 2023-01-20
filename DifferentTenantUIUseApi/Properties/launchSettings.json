@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MyServerRenderedPortal": {
+    "DifferentTenantUIUseApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

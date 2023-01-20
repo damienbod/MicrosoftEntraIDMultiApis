@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Identity.Web;
 
-namespace MyServerRenderedPortal.Pages;
+namespace DifferentTenantUIUseApi.Pages;
 
 [AuthorizeForScopes(Scopes = new string[] { "api://98328d53-55ec-4f14-8407-0ca5ff2f2d20/access_as_user" })]
 public class CallApiModel : PageModel

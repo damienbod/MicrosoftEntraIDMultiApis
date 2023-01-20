@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace MyServerRenderedPortal;
+namespace DifferentTenantUIUseApi;
 
 public static class SecurityHeadersDefinitions
 {
