@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 using AadMultiTenantApi;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using Microsoft.IdentityModel.Logging;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,30 +19,52 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 var env = builder.Environment;
 
+// jwt validate, should be in the configuration
+var issuert1 = "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0";
+var aud = "fd88c6e8-e790-4b1e-afab-3a9df8726a80";
+var azpClientId = "63aa66a6-9a50-464b-a37f-f624365b5926";
+var aadMetadataAddress = "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration";
+
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 IdentityModelEventSource.ShowPII = true;
 
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+    {
+        options.MetadataAddress = aadMetadataAddress;
+        //options.Authority = issuert1;
+        options.Audience = aud;
+        options.TokenValidationParameters = new TokenValidationParameters
         {
-            options.MetadataAddress = "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration";
-            options.Authority = "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0";
-            options.Audience = "fd88c6e8-e790-4b1e-afab-3a9df8726a80";
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateIssuerSigningKey = true,
-                ValidAudiences = new List<string> { "fd88c6e8-e790-4b1e-afab-3a9df8726a80" },
-                ValidIssuers = new List<string> { "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0" }
-            };
-        });
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidAudiences = new List<string> { aud },
+            ValidIssuers = new List<string> { issuert1 }
+        };
+    });
+
+services.AddSingleton<IAuthorizationHandler, ValidTenantsAndClientsHandler>();
+
+services.AddAuthorization(policies =>
+{
+    policies.AddPolicy("ValidTenantsAndClients", p =>
+    {
+        p.Requirements.Add(new ValidTenantsAndClientsRequirement());
+
+        // Validate id of application for which the token was created
+        p.RequireClaim("azp", azpClientId);
+
+        // client secret = 1, 2 if certificate is used
+        p.RequireClaim("azpacr", "1");
+    });
+});
 
 services.AddControllers(options =>
 {
     var policy = new AuthorizationPolicyBuilder()
         .RequireAuthenticatedUser()
-        // .RequireClaim("email") 
+        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
         .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
 });
