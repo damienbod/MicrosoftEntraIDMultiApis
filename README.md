@@ -5,6 +5,9 @@
 ## Create the service principal for the API in your tenant
 
 ```powershell
+Connect-AzureAD -TenantId '<UI-tenantId>'                                            
+
+New-AzureADServicePrincipal -AppId 'AppId-from-multi-tenant-api'
 ```
 
 ## Give Consent in your tenant to the Enterprise applications
@@ -27,3 +30,5 @@ Permissions used in the AAD API
 ## Links
 
 https://damienbod.com/2023/01/02/azure-ad-multi-tenant-azure-app-registration-consent/
+
+https://stackoverflow.com/questions/60929155/how-to-create-service-principal-of-multi-tenant-application
