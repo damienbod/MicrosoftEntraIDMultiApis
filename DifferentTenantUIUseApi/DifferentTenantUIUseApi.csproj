@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <UserSecretsId>aspnet-DifferentTenantUIUseApi-C5CB1E61-55D5-4D0D-A192-68F28533B4EA</UserSecretsId>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>c3f16437-f200-4d42-8d84-e583879f7844</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
