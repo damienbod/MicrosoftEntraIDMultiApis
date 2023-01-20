@@ -2,6 +2,7 @@
 
 [![.NET](https://github.com/damienbod/AadMutliApis/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AadMutliApis/actions/workflows/dotnet.yml)
 
+[Using multi-tenant AAD delegated APIs from different tenants](https://damienbod.com)
 ## Create the service principal for the API in your tenant
 
 ```powershell
