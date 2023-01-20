@@ -50,6 +50,7 @@ services.AddAuthorization(policies =>
 {
     policies.AddPolicy("ValidTenantsAndClients", p =>
     {
+        // only delegated trusted  known clients allowed to use the API
         p.Requirements.Add(new ValidTenantsAndClientsRequirement());
 
         // Validate id of application for which the token was created
