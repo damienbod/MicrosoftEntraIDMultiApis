@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using DifferentTenantUIUseApi;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ services.AddOptions();
 
 string[]? initialScopes = configuration.GetValue<string>("CallApi:ScopeForAccessToken")?.Split(' ');
 
-services.AddMicrosoftIdentityWebAppAuthentication(configuration)
+services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureAdB2C")
     .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
     .AddInMemoryTokenCaches();
 
