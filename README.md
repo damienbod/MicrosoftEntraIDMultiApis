@@ -1,4 +1,4 @@
-# AAD Multi tenant API
+# AAD and AD B2C Multi tenant APIs
 
 [![.NET](https://github.com/damienbod/AadMutliApis/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AadMutliApis/actions/workflows/dotnet.yml)
 
