@@ -28,9 +28,6 @@ var aud = "fd88c6e8-e790-4b1e-afab-3a9df8726a80";
 var azpClientId = "63aa66a6-9a50-464b-a37f-f624365b5926";
 var aadMetadataAddress = "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration";
 
-JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-IdentityModelEventSource.ShowPII = true;
-
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
     {
@@ -109,6 +106,9 @@ services.AddSwaggerGen(c =>
     // c.IncludeXmlComments(xmlPath);
 });
 var app = builder.Build();
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+IdentityModelEventSource.ShowPII = true;
 
 app.UseSecurityHeaders(
     SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment()));

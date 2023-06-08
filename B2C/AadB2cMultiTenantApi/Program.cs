@@ -26,10 +26,7 @@ var env = builder.Environment;
 var issuert1 = "https://b2cdamienbod.b2clogin.com/f611d805-cf72-446f-9a7f-68f2746e4724/v2.0/";
 var aud = "ca8dc6a9-c0de-4dfb-8e42-758ef311d8ab";
 var azpClientId = "8cbb1bd3-c190-42d7-b44e-42b20499a8a1";
-var aadMetadataAddress = "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration";
-
-JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-IdentityModelEventSource.ShowPII = true;
+var aadMetadataAddress = "https://b2cdamienbod.b2clogin.com/b2cdamienbod.onmicrosoft.com/B2C_1_signup_signin/v2.0/.well-known/openid-configuration";
 
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
@@ -109,6 +106,9 @@ services.AddSwaggerGen(c =>
     // c.IncludeXmlComments(xmlPath);
 });
 var app = builder.Build();
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+IdentityModelEventSource.ShowPII = true;
 
 app.UseSecurityHeaders(
     SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment()));
