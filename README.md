@@ -37,6 +37,10 @@ Permissions used in the AAD API
 
 - multi-tenant-api
 
+## Note
+
+Validate the UI client ID in the API to only allow ATs from known B2C tenants.
+
 ## Links
 
 https://damienbod.com/2023/01/02/azure-ad-multi-tenant-azure-app-registration-consent/
