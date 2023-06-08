@@ -23,13 +23,10 @@ var env = builder.Environment;
 // "TenantId": "7ff95b15-dc21-4ba6-bc92-824856578fc1",
 // "ClientId": "fd88c6e8-e790-4b1e-afab-3a9df8726a80"
 // jwt validate, should be in the configuration
-var issuert1 = "https://login.microsoftonline.com/5698af84-5720-4ff0-bdc3-9d9195314244/v2.0";
-var aud = "fd88c6e8-e790-4b1e-afab-3a9df8726a80";
-var azpClientId = "63aa66a6-9a50-464b-a37f-f624365b5926";
-var aadMetadataAddress = "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration";
-
-JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-IdentityModelEventSource.ShowPII = true;
+var issuert1 = "https://b2cdamienbod.b2clogin.com/f611d805-cf72-446f-9a7f-68f2746e4724/v2.0/";
+var aud = "ca8dc6a9-c0de-4dfb-8e42-758ef311d8ab";
+var azpClientId = "8cbb1bd3-c190-42d7-b44e-42b20499a8a1";
+var aadMetadataAddress = "https://b2cdamienbod.b2clogin.com/b2cdamienbod.onmicrosoft.com/B2C_1_signup_signin/v2.0/.well-known/openid-configuration";
 
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
@@ -109,6 +106,9 @@ services.AddSwaggerGen(c =>
     // c.IncludeXmlComments(xmlPath);
 });
 var app = builder.Build();
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+IdentityModelEventSource.ShowPII = true;
 
 app.UseSecurityHeaders(
     SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment()));
