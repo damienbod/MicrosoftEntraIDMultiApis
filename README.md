@@ -15,6 +15,11 @@
 2023-03-02 Updated packages
 
 ```powershell
+
+//Connect-AzureAD -TenantId '<UI-tenantId>' 
+
+//New-AzureADServicePrincipal -AppId 'ClientId-from-multi-tenant-api'
+
 Connect-AzureAD -TenantId 'e8b4665e-8ad9-4e12-8c3f-0d48ddb58d16'                                            
 
 New-AzureADServicePrincipal -AppId 'ca8dc6a9-c0de-4dfb-8e42-758ef311d8ab'
