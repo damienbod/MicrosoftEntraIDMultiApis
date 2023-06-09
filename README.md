@@ -16,9 +16,9 @@
 
 ```powershell
 
-//Connect-AzureAD -TenantId '<UI-tenantId>' 
+# Connect-AzureAD -TenantId '<UI-tenantId>' 
 
-//New-AzureADServicePrincipal -AppId 'ClientId-from-multi-tenant-api'
+# New-AzureADServicePrincipal -AppId 'ClientId-from-multi-tenant-api'
 
 Connect-AzureAD -TenantId 'e8b4665e-8ad9-4e12-8c3f-0d48ddb58d16'                                            
 
