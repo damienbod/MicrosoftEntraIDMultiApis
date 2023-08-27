@@ -6,7 +6,7 @@
 
 ## Create the service principal for the API in your tenant
 
-## Hstory
+## History
 
 2023-08-27 Updated packages
 
