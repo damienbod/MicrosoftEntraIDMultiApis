@@ -33,19 +33,19 @@ New-AzureADServicePrincipal -AppId 'ca8dc6a9-c0de-4dfb-8e42-758ef311d8ab'
 3. Open the permissions blade
 4. Grant Admin consent if you require to use local tenant permissions
 
-## Azure AD Permissions API
+## Microsoft Entra ID Permissions API
 
 Permissions used in the AAD API
 
 - none
 
-## Azure AD Permissions UI 
+## Microsoft Entra ID Permissions UI 
 
 - multi-tenant-api
 
 ## Note
 
-Validate the UI client ID in the API to only allow ATs from known B2C tenants.
+Validate the UI client ID in the API to only allow ATs from known Azure AD B2C tenants.
 
 ## Links
 
