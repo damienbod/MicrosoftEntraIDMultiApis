@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeIDMultiTenantApi", "MeID\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "B2C", "B2C", "{C01E5FB3-F8B6-4692-A637-646CCDE0F837}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AadB2cMultiTenantApi", "B2C\AadB2cMultiTenantApi\AadB2cMultiTenantApi.csproj", "{03616389-9A04-47CF-B805-598C0D5BA6B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeIDB2cMultiTenantApi", "B2C\AadB2cMultiTenantApi\MeIDB2cMultiTenantApi.csproj", "{03616389-9A04-47CF-B805-598C0D5BA6B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DifferentB2cTenantUIUseApi", "B2C\DifferentB2cTenantUIUseApi\DifferentB2cTenantUIUseApi.csproj", "{0E735406-3E1B-4764-A76A-FE76E7802118}"
 EndProject
