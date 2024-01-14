@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace AadMultiTenantApi;
+namespace MeIDMultiTenantApi;
 
 public static class SecurityHeadersDefinitions
 {
@@ -57,7 +57,7 @@ public static class SecurityHeadersDefinitions
                 builder.AddCustomDirective("require-trusted-types-for", "'script'");
             });
             // maxage = one year in seconds
-            policy.AddStrictTransportSecurityMaxAgeIncludeSubDomains(maxAgeInSeconds: 60 * 60 * 24 * 365);
+            policy.AddStrictTransportSecurityMaxAgeIncludeSubDomains();
         }
         else
         {

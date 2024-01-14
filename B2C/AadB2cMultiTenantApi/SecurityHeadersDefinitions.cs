@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace AadMultiTenantApi;
+namespace MeIDMultiTenantApi;
 
 public static class SecurityHeadersDefinitions
 {

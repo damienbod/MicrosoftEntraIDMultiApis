@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_Solution
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AD", "AD", "{643B6066-6C4D-467C-BE11-208B2D2B56D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MeID", "MeID", "{643B6066-6C4D-467C-BE11-208B2D2B56D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DifferentTenantUIUseApi", "AD\DifferentTenantUIUseApi\DifferentTenantUIUseApi.csproj", "{5839155A-A7AB-43BA-BFE2-C22EC08ACAED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DifferentTenantUIUseApi", "MeID\DifferentTenantUIUseApi\DifferentTenantUIUseApi.csproj", "{5839155A-A7AB-43BA-BFE2-C22EC08ACAED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AadMultiTenantApi", "AD\AadMultiTenantApi\AadMultiTenantApi.csproj", "{AB5D6767-C339-4239-BED5-6132DCBD45E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeIDMultiTenantApi", "MeID\AadMultiTenantApi\MeIDMultiTenantApi.csproj", "{AB5D6767-C339-4239-BED5-6132DCBD45E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "B2C", "B2C", "{C01E5FB3-F8B6-4692-A637-646CCDE0F837}"
 EndProject

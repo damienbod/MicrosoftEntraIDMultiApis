@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.OpenApi.Models;
-using AadMultiTenantApi;
+using MeIDMultiTenantApi;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using Microsoft.IdentityModel.Logging;

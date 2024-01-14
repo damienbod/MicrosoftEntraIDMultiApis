@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace AadMultiTenantApi;
+namespace MeIDMultiTenantApi;
 
 public class ValidTenantsAndClientsRequirement : IAuthorizationRequirement{ }
