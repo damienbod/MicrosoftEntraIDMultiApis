@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace MeIDMultiTenantApi;
+﻿namespace MeIDMultiTenantApi;
 
 public static class SecurityHeadersDefinitions
 {

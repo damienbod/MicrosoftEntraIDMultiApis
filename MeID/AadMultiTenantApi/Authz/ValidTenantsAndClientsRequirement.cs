@@ -2,4 +2,4 @@
 
 namespace MeIDMultiTenantApi;
 
-public class ValidTenantsAndClientsRequirement : IAuthorizationRequirement{ }
+public class ValidTenantsAndClientsRequirement : IAuthorizationRequirement { }

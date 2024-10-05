@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace DifferentTenantUIUseApi;
+﻿namespace DifferentTenantUIUseApi;
 
 public static class SecurityHeadersDefinitions
 {
