@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 
@@ -18,6 +19,13 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 var services = builder.Services;
 var configuration = builder.Configuration;
 var env = builder.Environment;
+
+services.AddSecurityHeaderPolicies()
+  .SetPolicySelector((PolicySelectorContext ctx) =>
+  {
+      return SecurityHeadersDefinitions
+        .GetHeaderPolicyCollection(env.IsDevelopment());
+  });
 
 // API info => multi tenant App registration V2
 // "TenantId": "7ff95b15-dc21-4ba6-bc92-824856578fc1",
@@ -110,8 +118,7 @@ var app = builder.Build();
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 IdentityModelEventSource.ShowPII = true;
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment()));
+app.UseSecurityHeaders();
 
 if (env.IsDevelopment())
 {
