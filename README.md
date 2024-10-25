@@ -8,6 +8,7 @@
 
 ## History
 
+- 2024-10-25 Updated packages
 - 2024-10-06 Updated security headers
 - 2024-10-05 Updated packages
 - 2024-06-22 Updated packages
