@@ -18,13 +18,12 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 
 var services = builder.Services;
 var configuration = builder.Configuration;
-var env = builder.Environment;
 
 services.AddSecurityHeaderPolicies()
   .SetPolicySelector((PolicySelectorContext ctx) =>
   {
       return SecurityHeadersDefinitions
-        .GetHeaderPolicyCollection(env.IsDevelopment());
+        .GetHeaderPolicyCollection(builder.Environment.IsDevelopment());
   });
 
 // API info => multi tenant App registration V2
@@ -120,7 +119,7 @@ IdentityModelEventSource.ShowPII = true;
 
 app.UseSecurityHeaders();
 
-if (env.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 
