@@ -1,4 +1,4 @@
-using DifferentTenantUIUseApi;
+using DifferentB2cTenantUIUseApi;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;

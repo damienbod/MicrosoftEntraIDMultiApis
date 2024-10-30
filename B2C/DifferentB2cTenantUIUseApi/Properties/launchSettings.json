@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "DifferentTenantUIUseApi": {
+    "DifferentB2cTenantUIUseApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

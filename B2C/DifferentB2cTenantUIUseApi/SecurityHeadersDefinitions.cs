@@ -1,4 +1,4 @@
-﻿namespace DifferentTenantUIUseApi;
+﻿namespace DifferentB2cTenantUIUseApi;
 
 public static class SecurityHeadersDefinitions
 {
