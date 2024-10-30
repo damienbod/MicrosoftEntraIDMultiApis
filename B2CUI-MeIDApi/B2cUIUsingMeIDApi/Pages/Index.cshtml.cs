@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MeIDMultiTenantApi.Pages;
+namespace B2cUIUsingMeIDApi.Pages;
 
 public class IndexModel : PageModel
 {
