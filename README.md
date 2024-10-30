@@ -60,3 +60,5 @@ https://damienbod.com/2023/01/02/azure-ad-multi-tenant-azure-app-registration-co
 https://stackoverflow.com/questions/60929155/how-to-create-service-principal-of-multi-tenant-application
 
 https://learn.microsoft.com/en-us/azure/active-directory-b2c/access-tokens
+
+https://stackoverflow.com/questions/74121290/allow-azure-b2c-app-registration-access-to-regular-organization-ad-app-registrat
