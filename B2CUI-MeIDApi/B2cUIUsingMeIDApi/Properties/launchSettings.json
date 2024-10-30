@@ -1,12 +1,12 @@
 {
   "profiles": {
-    "DifferentTenantUIUseApi": {
+    "B2cUIUsingMeIDApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:44397"
+      "applicationUrl": "https://localhost:5005"
     }
   }
 }
