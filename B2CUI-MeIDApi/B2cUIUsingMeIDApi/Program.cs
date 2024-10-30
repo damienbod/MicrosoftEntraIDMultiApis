@@ -1,8 +1,10 @@
 using DifferentTenantUIUseApi;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using Microsoft.IdentityModel.Logging;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,9 +31,23 @@ services.AddOptions();
 
 string[]? initialScopes = configuration.GetValue<string>("CallApi:ScopeForAccessToken")?.Split(' ');
 
-services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureAdB2C")
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(options =>
+    {
+        builder.Configuration.Bind("AzureAdB2C", options);
+        options.UsePkce = true;
+        options.Events = new OpenIdConnectEvents
+        {
+            OnTokenResponseReceived = async context =>
+            {
+                var idToken = context.TokenEndpointResponse.IdToken;
+            }
+        };
+    })
     .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-    .AddInMemoryTokenCaches();
+    .AddDistributedTokenCaches();
 
 services.AddRazorPages().AddMvcOptions(options =>
 {
@@ -42,6 +58,8 @@ services.AddRazorPages().AddMvcOptions(options =>
 }).AddMicrosoftIdentityUI();
 
 var app = builder.Build();
+
+IdentityModelEventSource.ShowPII = true;
 
 app.UseSecurityHeaders();
 

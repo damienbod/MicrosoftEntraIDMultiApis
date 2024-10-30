@@ -57,3 +57,5 @@ Validate the UI client ID in the API to only allow ATs from known Azure AD B2C t
 https://damienbod.com/2023/01/02/azure-ad-multi-tenant-azure-app-registration-consent/
 
 https://stackoverflow.com/questions/60929155/how-to-create-service-principal-of-multi-tenant-application
+
+https://learn.microsoft.com/en-us/azure/active-directory-b2c/access-tokens
