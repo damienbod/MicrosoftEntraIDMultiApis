@@ -1,4 +1,4 @@
-using MeIDMultiTenantApi;
+using MeIDB2cMultiTenantApi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;

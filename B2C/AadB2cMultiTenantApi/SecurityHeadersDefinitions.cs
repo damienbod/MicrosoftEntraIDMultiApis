@@ -1,4 +1,4 @@
-﻿namespace MeIDMultiTenantApi;
+﻿namespace MeIDB2cMultiTenantApi;
 
 public static class SecurityHeadersDefinitions
 {
