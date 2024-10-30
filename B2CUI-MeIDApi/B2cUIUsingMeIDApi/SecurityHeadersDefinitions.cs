@@ -1,4 +1,4 @@
-﻿namespace DifferentTenantUIUseApi;
+﻿namespace MeIDMultiTenantApi;
 
 public static class SecurityHeadersDefinitions
 {

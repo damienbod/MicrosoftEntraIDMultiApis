@@ -42,8 +42,8 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
-            ValidAudiences = new List<string> { aud },
-            ValidIssuers = new List<string> { issuert1 }
+            ValidAudiences = [aud],
+            ValidIssuers = [issuert1]
         };
     });
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Identity.Web;
 using System.Net.Http.Headers;
 
-namespace DifferentTenantUIUseApi;
+namespace B2cUIUsingMeIDApi.CallApi;
 
 public class ApiService
 {

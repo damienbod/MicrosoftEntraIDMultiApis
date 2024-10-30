@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DifferentTenantUIUseApi.Pages;
+namespace MeIDMultiTenantApi.Pages;
 
 public class PrivacyModel : PageModel
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MeIDB2cMultiTenantApi.Controllers;
+namespace MeIDMultiTenantApi.Controllers;
 
 [Authorize]
 [ApiController]
