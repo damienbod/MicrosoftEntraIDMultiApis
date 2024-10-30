@@ -27,8 +27,8 @@ services.AddSecurityHeaderPolicies()
   });
 
 var issuert1 = "https://b2cdamienbod.b2clogin.com/f611d805-cf72-446f-9a7f-68f2746e4724/v2.0/";
-var aud = "ca8dc6a9-c0de-4dfb-8e42-758ef311d8ab";
-var azpClientId = "8cbb1bd3-c190-42d7-b44e-42b20499a8a1";
+var aud = "6e892701-b644-4da8-b70b-26ff89cc1751";
+var azpClientId = "54bde571-dfb3-4d8f-aa52-d27a5c039e0e";
 var aadMetadataAddress = "https://b2cdamienbod.b2clogin.com/b2cdamienbod.onmicrosoft.com/B2C_1_signup_signin/v2.0/.well-known/openid-configuration";
 
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
