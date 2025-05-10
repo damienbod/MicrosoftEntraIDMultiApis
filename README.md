@@ -8,6 +8,7 @@
 
 ## History
 
+- 2025-05-10 .NET 9
 - 2024-10-30 Added Microsoft Entra ID API and an Azure AD B2C UI multi-tenant application
 - 2024-10-25 Updated packages
 - 2024-10-06 Updated security headers
