@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
@@ -73,41 +72,21 @@ services.AddControllers(options =>
     options.Filters.Add(new AuthorizeFilter(policy));
 });
 
-services.AddSwaggerGen(c =>
+builder.Services.AddOpenApi(options =>
 {
-    c.EnableAnnotations();
-
-    // add JWT Authentication
-    var securityScheme = new OpenApiSecurityScheme
-    {
-        Name = "JWT Authentication",
-        Description = "Enter JWT Bearer token **_only_**",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer", // must be lower case
-        BearerFormat = "JWT",
-        Reference = new OpenApiReference
-        {
-            Id = JwtBearerDefaults.AuthenticationScheme,
-            Type = ReferenceType.SecurityScheme
-        }
-    };
-    c.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {securityScheme, Array.Empty<string>() }
-            });
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "API",
-        Version = "v1",
-        Description = "Exam Manager API"
-    });
-
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    // c.IncludeXmlComments(xmlPath);
+    //options.UseTransformer((document, context, cancellationToken) =>
+    //{
+    //    document.Info = new()
+    //    {
+    //        Title = "My API",
+    //        Version = "v1",
+    //        Description = "API for Damien"
+    //    };
+    //    return Task.CompletedTask;
+    //});
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
 });
+
 var app = builder.Build();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
@@ -115,16 +94,16 @@ IdentityModelEventSource.ShowPII = true;
 
 app.UseSecurityHeaders();
 
+app.MapOpenApi("/openapi/v1/openapi.json");
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
-
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    app.UseSwaggerUI(options =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+        options.SwaggerEndpoint("/openapi/v1/openapi.json", "v1");
     });
 }
+
 
 app.UseHttpsRedirection();
 
